@@ -1,0 +1,31 @@
+package com.andile.fraud.service;
+
+import com.andile.fraud.model.FraudCheckHistory;
+import com.andile.fraud.repository.FraudCheckHistoryRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
+
+@Service
+@RequiredArgsConstructor
+public class FraudCheckService {
+
+    private final FraudCheckHistoryRepository repository;
+
+
+    /**
+     * @param customerId
+     * @return
+     */
+    public boolean isFraudulent(Integer customerId){
+        repository.save(
+                FraudCheckHistory.builder()
+                        .customerId(customerId)
+                        .isFraudster(false)
+                        .createAt(LocalDateTime.now())
+                        .build()
+        );
+        return false;
+    }
+}

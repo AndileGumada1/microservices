@@ -2,17 +2,21 @@ package com.andile.customer.api.service;
 
 
 import com.andile.customer.api.dto.CustomerRequest;
+import com.andile.customer.api.dto.FraudCheckResponse;
 import com.andile.customer.model.Customer;
 import com.andile.customer.repository.CustomerRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 @Service
 @AllArgsConstructor
 public class CustomerService {
 
     private final CustomerRepository repository;
-    public void registerCustomer(CustomerRequest customerRequest) {
+    private final RestTemplate restTemplate;
+
+    public void registerCustomer(CustomerRequest customerRequest) throws FraudsterException {
         Customer customer = Customer.builder()
                 .firstName(customerRequest.firstName())
                 .lastName(customerRequest.lastName())
@@ -21,6 +25,16 @@ public class CustomerService {
         // todo: check if email is valid
         // todo: check if email not taken
         // todo: store customer in db
-        repository.save(customer);
+        repository.saveAndFlush(customer);
+        // todo: check if fraudster
+        FraudCheckResponse fraudCheckResponse = restTemplate.getForObject(
+                "http://localhost:8082/api/v1/fraud-check/{customerId}",
+                FraudCheckResponse.class,
+                customer.getId()
+        );
+        if (fraudCheckResponse.isFraudster()){
+            throw new FraudsterException("Customer is a fraudster");
+        }
+
     }
 }

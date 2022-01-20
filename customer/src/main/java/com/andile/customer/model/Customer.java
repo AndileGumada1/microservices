@@ -3,6 +3,7 @@ package com.andile.customer.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @EqualsAndHashCode
 @Builder
@@ -11,7 +12,7 @@ import javax.persistence.*;
 @Entity
 @Setter
 @Getter
-public class Customer {
+public class Customer implements Serializable {
 
     @Id
     @SequenceGenerator(name = "customer_id_sequence",

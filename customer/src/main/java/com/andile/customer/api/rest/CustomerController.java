@@ -3,6 +3,7 @@ package com.andile.customer.api.rest;
 
 import com.andile.customer.api.dto.CustomerRequest;
 import com.andile.customer.api.service.CustomerService;
+import com.andile.customer.api.service.FraudsterException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,7 +28,7 @@ public class CustomerController {
      * @param customerRequest represents customers request to register
      */
     @PostMapping
-    public void registerCustomer(@RequestBody CustomerRequest customerRequest){
+    public void registerCustomer(@RequestBody CustomerRequest customerRequest) throws FraudsterException {
         log.info("New Customer registration {}" , customerRequest);
         customerService.registerCustomer(customerRequest);
     }
