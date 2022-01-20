@@ -1,6 +1,6 @@
-/home/andile/eclipse-workspace/microsevices/customer/src/main/java/com/andile/customer/model/Customer.java
-/home/andile/eclipse-workspace/microsevices/customer/src/main/java/com/andile/customer/repository/CustomerRepository.java
-/home/andile/eclipse-workspace/microsevices/customer/src/main/java/com/andile/customer/CustomerApplication.java
-/home/andile/eclipse-workspace/microsevices/customer/src/main/java/com/andile/customer/api/service/CustomerService.java
-/home/andile/eclipse-workspace/microsevices/customer/src/main/java/com/andile/customer/api/rest/CustomerController.java
-/home/andile/eclipse-workspace/microsevices/customer/src/main/java/com/andile/customer/api/dto/CustomerRequest.java
+/home/andile/eclipse-workspace/microservices/customer/src/main/java/com/andile/customer/api/rest/CustomerController.java
+/home/andile/eclipse-workspace/microservices/customer/src/main/java/com/andile/customer/repository/CustomerRepository.java
+/home/andile/eclipse-workspace/microservices/customer/src/main/java/com/andile/customer/model/Customer.java
+/home/andile/eclipse-workspace/microservices/customer/src/main/java/com/andile/customer/CustomerApplication.java
+/home/andile/eclipse-workspace/microservices/customer/src/main/java/com/andile/customer/api/dto/CustomerRequest.java
+/home/andile/eclipse-workspace/microservices/customer/src/main/java/com/andile/customer/api/service/CustomerService.java

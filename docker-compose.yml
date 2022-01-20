@@ -7,8 +7,9 @@ services:
     container_name: postgres
     image: postgres
     environment:
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: root
+      SPRING_DATASOURCE_USERNAME : root
+      SPRING_DATASOURCE_PASSWORD : root
+      SPRING_JPA_HIBERNATE_DDL_AUTO : create
       PGDATA: /data/postgres
     volumes:
       - postgres:/data/postgres

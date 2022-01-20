@@ -40,6 +40,9 @@
     </dependency>
   </dependencies>
   <build>
+
+      <finalName>microservice-api-docker</finalName>
+
     <pluginManagement>
       <plugins>
         <plugin>

@@ -1,17 +1,16 @@
 package com.andile.customer.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
-@Data
+@EqualsAndHashCode
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Setter
+@Getter
 public class Customer {
 
     @Id
