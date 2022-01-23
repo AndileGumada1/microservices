@@ -35,6 +35,11 @@ public class CustomerService {
         if (fraudCheckResponse.isFraudster()){
             throw new FraudsterException("Customer is a fraudster");
         }
-
+        NotificationRequest notificationRequest = new NotificationRequest(
+                customer.getId(),
+                customer.getEmail(),
+                String.format("Hi %s, welcome to Amigoscode...",
+                        customer.getFirstName())
+        );
     }
 }
